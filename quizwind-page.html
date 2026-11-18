@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WindWave Quiz | Wind Energy for Smart Cities</title>
+  <meta name="description" content="An interactive quiz component built with JavaScript, themed on wind energy for smart cities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="quizwind-style.css" />
+</head>
+<body>
+  <header class="qzw-hero">
+    <span class="qzw-sun" aria-hidden="true"></span>
+
+    <div class="qzw-hero-inner">
+      <p class="qzw-kicker">Practicum &middot; Interactive Component</p>
+      <h1>Wind<em>Wave</em> Quiz</h1>
+      <p class="qzw-lead">Harnessing wind energy for smart cities. Test what you know about web interaction, one question at a time.</p>
+      <nav>
+        <a href="#theory">VI. Theory</a>
+        <a href="#setup">VII. Take the quiz</a>
+      </nav>
+    </div>
+
+    <svg class="qzw-hills" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <path class="qzw-hill-far" d="M0 150 Q200 90 420 140 T820 120 T1200 140 V220 H0 Z" />
+      <path class="qzw-hill-near" d="M0 190 Q250 140 520 180 T1200 170 V220 H0 Z" />
+    </svg>
+
+    <div class="qzw-farm" aria-hidden="true">
+      <svg class="qzw-tb qzw-tb1" viewBox="0 0 100 160"><path d="M48 66 L52 66 L56 160 L44 160 Z" /><g class="qzw-bl"><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" /></g><circle cx="50" cy="60" r="4.5" /></svg>
+      <svg class="qzw-tb qzw-tb2" viewBox="0 0 100 160"><path d="M48 66 L52 66 L56 160 L44 160 Z" /><g class="qzw-bl"><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" /></g><circle cx="50" cy="60" r="4.5" /></svg>
+      <svg class="qzw-tb qzw-tb3" viewBox="0 0 100 160"><path d="M48 66 L52 66 L56 160 L44 160 Z" /><g class="qzw-bl"><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" /></g><circle cx="50" cy="60" r="4.5" /></svg>
+    </div>
+  </header>
+
+  <main>
+    <section id="theory" class="qzw-sheet">
+      <h2><span>VI.</span> Minimum Underpinning Theory</h2>
+      <p>
+        The minimum underpinning theory for developing an interactive component for an application is
+        grounded in the principles of event-driven programming, the Document Object Model (DOM), and
+        user interface design. Event-driven programming allows the application to respond to user
+        actions (such as clicks, keystrokes, or hover events) by triggering appropriate functions or
+        behaviors. Through DOM manipulation, developers can dynamically alter the content and structure
+        of a webpage in response to these events, providing real-time feedback to the user.
+        Additionally, principles of user-centered design and responsiveness guide the development of
+        interactive components, ensuring that they are intuitive, accessible, and optimized for various
+        devices and screen sizes. JavaScript frameworks and libraries, such as React or Vue.js, are
+        commonly used to manage state and facilitate smooth, dynamic interactions, allowing for
+        efficient updates without reloading the page. This theory ensures that interactive components
+        are both functional and user-friendly, enhancing the overall user experience.
+      </p>
+      <ul class="qzw-tags">
+        <li>Event-driven programming</li>
+        <li>DOM manipulation</li>
+        <li>User-centered design</li>
+        <li>Responsiveness</li>
+        <li>State management</li>
+      </ul>
+    </section>
+
+    <section id="setup" class="qzw-sheet">
+      <h2><span>VII.</span> Practicum Set-up</h2>
+      <p class="qzw-sub">The quiz is the interactive component. Click an answer or press the keys A to D. Press Enter for the next question.</p>
+
+      <div class="qzw-quiz" id="qzw-quiz">
+
+        <!-- Question screen -->
+        <div id="qzw-play">
+          <div class="qzw-top">
+            <div class="qzw-prog-wrap">
+              <span class="qzw-qn" id="qzw-qn">Question 1/8</span>
+              <div class="qzw-prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="qzw-prog">
+                <div class="qzw-prog-fill" id="qzw-prog-fill"></div>
+              </div>
+            </div>
+            <div class="qzw-score">
+              <span>Score</span>
+              <strong id="qzw-score">0</strong>
+            </div>
+          </div>
+
+          <div class="qzw-meter" aria-label="Time left for this question">
+            <div class="qzw-meter-fill" id="qzw-meter-fill"></div>
+          </div>
+
+          <h3 class="qzw-q" id="qzw-q" tabindex="-1">Loading question...</h3>
+
+          <ul class="qzw-opts" id="qzw-opts"></ul>
+
+          <div class="qzw-feedback" id="qzw-feedback" role="status" aria-live="polite" hidden></div>
+
+          <div class="qzw-foot">
+            <span class="qzw-hint" id="qzw-hint">Tip: you have 20 seconds per question.</span>
+            <button type="button" class="qzw-next" id="qzw-next" disabled>Next question &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Result screen -->
+        <div id="qzw-end" class="qzw-end" hidden>
+          <div class="qzw-ring" id="qzw-ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle class="qzw-ring-bg" cx="60" cy="60" r="52" />
+              <circle class="qzw-ring-fg" id="qzw-ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="qzw-ring-txt"><strong id="qzw-final">0</strong><span id="qzw-final-of">/ 8</span></div>
+          </div>
+          <h3 id="qzw-rank">Well done!</h3>
+          <p id="qzw-rank-text" class="qzw-sub"></p>
+          <p class="qzw-best" id="qzw-best"></p>
+          <div class="qzw-end-btns">
+            <button type="button" class="qzw-next" id="qzw-again">Play again</button>
+            <button type="button" class="qzw-ghost" id="qzw-review-btn">Review answers</button>
+          </div>
+          <ol class="qzw-review" id="qzw-review" hidden></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="qzw-footer">WindWave Quiz &middot; Wind energy for smart cities &middot; Built with HTML, CSS and JavaScript</footer>
+
+  <script src="quizwind-script.js"></script>
+</body>
+</html>
